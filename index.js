@@ -29,16 +29,17 @@ app.get('/api/todos', async (req, res) => {
 });
 
 // POST a new todo
-app.post('/api/todos', async (req, res) => {
-  const { title } = req.body;
+app.post('/api/todo', async (req, res) => {
+  console.log('Request Body:', req.body);
+  const { text } = req.body;
   
-  if (!title) {
+  if (!text) {
     return res.status(400).json({ message: 'Title is required' });
   }
 
   try {
     const newTodo = new Todo({
-      title,
+      text,
     });
 
     const savedTodo = await newTodo.save();

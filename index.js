@@ -29,8 +29,7 @@ app.get('/api/todos', async (req, res) => {
 });
 
 // POST a new todo
-app.post('/api/todo', async (req, res) => {
-  console.log('Request Body:', req.body);
+app.post('/api/todos', async (req, res) => {
   const { text } = req.body;
   
   if (!text) {
